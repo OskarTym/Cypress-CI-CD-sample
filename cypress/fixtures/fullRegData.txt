@@ -1,0 +1,24 @@
+-----------------------------------
+username:   1642176314060396
+email:      1642176314060396@gmail.com
+password:   Qwerty12345
+first name: FN-1642176314060396
+last name:  LN-1642176314060396
+
+   -> User Successfully Registered!
+-----------------------------------
+username:   1642176357038780
+email:      1642176357038780@gmail.com
+password:   Qwerty12345
+first name: FN-1642176357038780
+last name:  LN-1642176357038780
+
+   -> User Successfully Registered!
+-----------------------------------
+username:   16421798981322
+email:      16421798981322@gmail.com
+password:   Qwerty12345
+first name: FN-16421798981322
+last name:  LN-16421798981322
+
+   -> User Successfully Registered!

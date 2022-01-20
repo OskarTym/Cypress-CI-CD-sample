@@ -1,0 +1,12 @@
+-----------------------------------
+email:      1642176314060396@gmail.com
+
+   -> User Successfully Registered!
+-----------------------------------
+email:      1642176357038780@gmail.com
+
+   -> User Successfully Registered!
+-----------------------------------
+email:      16421798981322@gmail.com
+
+   -> User Successfully Registered!
