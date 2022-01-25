@@ -99,10 +99,10 @@ describe('Registration process [FULL + QUICK]', () => {
 
         cy
             .get(pe.congratulationsTitle)
-            .should('contain.text', 'congratulationsTitle')
+            .should('contain.text', 'Congratulations, You have successfully registered!')
         cy
             .get(pe.congratulationsText)
-            .should('contain.text', 'congratulationsText')
+            .should('contain.text', 'InPlayBet offers a range of cool features and promotions to Verified users, which is a quick and Fast process from your account!')
 
         cy.get(pe.congratulation_btn).type('{esc}')
 
