@@ -9,6 +9,10 @@ jobs:
     steps: 
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Checkout private actions
+        uses: vweevers/multi-checkout-action@v1
+        with:
+          repositories: OskarTym/CV-Portfolio
       - name: Install node
         uses: actions/setup-node@v2
         with:
