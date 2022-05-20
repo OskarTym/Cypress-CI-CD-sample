@@ -1,65 +1,78 @@
 /// <reference types="cypress" />
 
 
-import { Elements } from "../support/selectors"
+import {
+    Elements
+} from "../support/selectors"
 
 describe('Registration process [FULL + QUICK]', () => {
-    
+
     // pe -> page element
     const pe = new Elements()
 
+    var uniqueId, uniqueEmail, firstName, lastName
+
     const uniqueSeed = Date.now().toString();
     const getUniqueId = () => Cypress._.uniqueId(uniqueSeed);
-
-    const uniqueId = getUniqueId();
-    const uniqueEmail = uniqueId + '@gmail.com'
     const pass = 'Qwerty12345'
 
-    const firstName = 'FN-' + uniqueId
-    const lastName = 'LN-' + uniqueId
+    function GenerateUser() {
+         uniqueId = getUniqueId();
+         uniqueEmail = uniqueId + '@gmail.com'
+
+         firstName = 'FN-' + uniqueId
+         lastName = 'LN-' + uniqueId
+    }
 
     function saveFullRegData(uniqueId, uniqueEmail, pass, firstName, lastName) {
-        cy.writeFile('cypress/fixtures/fullRegData.txt', 
-            
-            '-----------------------------------\n' 
-            + 'username:   ' + uniqueId + '\n'
-            + 'email:      ' + uniqueEmail + '\n'
-            + 'password:   ' + pass + '\n'
-            + 'first name: ' + firstName + '\n'
-            + 'last name:  ' + lastName + '\n'
-            + '\n   -> User Successfully Registered!\n',
+        cy.writeFile('cypress/fixtures/fullRegData.txt',
 
-            { flag: 'a+' })
+            '-----------------------------------\n' +
+            'username:   ' + uniqueId + '\n' +
+            'email:      ' + uniqueEmail + '\n' +
+            'password:   ' + pass + '\n' +
+            'first name: ' + firstName + '\n' +
+            'last name:  ' + lastName + '\n' +
+            '\n   -> User Successfully Registered!\n',
+
+            {
+                flag: 'a+'
+            })
     }
 
     function saveQuickRegData(uniqueEmail) {
-        cy.writeFile('cypress/fixtures/quickRegData.txt', 
-            
-            '-----------------------------------\n' 
-            + 'email:      ' + uniqueEmail + '\n'
-            + '\n   -> User Successfully Registered!\n',
+        cy.writeFile('cypress/fixtures/quickRegData.txt',
 
-            { flag: 'a+' })
+            '-----------------------------------\n' +
+            'email:      ' + uniqueEmail + '\n' +
+            '\n   -> User Successfully Registered!\n',
+
+            {
+                flag: 'a+'
+            })
     }
 
-    beforeEach(()=>{
+    beforeEach(() => {
         cy
             .viewport(1280, 1080)
             .visit(pe.mainUrl)
+            .clearLocalStorage()
     })
 
     it('FULL Successful Registration', () => {
-        
+
+        GenerateUser()
+
         cy.get(pe.register_btn).click()
 
         // ----- Step 1 - ACCOUNT INFORMATION
-        
-        cy.get(pe.full_reg_form).should('have.class','active')
+
+        cy.get(pe.full_reg_form).should('have.class', 'active')
 
         cy.get(pe.title).should('have.text', 'ACCOUNT INFORMATION')
         cy.get(pe.passwordInfo).should('contain.text', pe.passwordInfoText)
 
-        cy.get(pe.username_input).type(uniqueId)
+        cy.get(pe.username_input).type('usn' + uniqueId)
         cy.get(pe.full_email_input).type(uniqueEmail)
         cy.get(pe.password_input).type(pass)
         cy.get(pe.confirmPassword_input).type(pass)
@@ -91,7 +104,7 @@ describe('Registration process [FULL + QUICK]', () => {
         cy.get(pe.s3RegSubmit_btn).should('have.class', 'not_active')
 
         cy.get(pe.fullAcceptTerms_chechbox).click()
-        
+
         cy.get(pe.s3RegSubmit_btn).click()
 
 
@@ -104,17 +117,19 @@ describe('Registration process [FULL + QUICK]', () => {
             .get(pe.congratulationsText)
             .should('contain.text', 'InPlayBet offers a range of cool features and promotions to Verified users, which is a quick and Fast process from your account!')
 
-            cy.get('.finalize-btn').click()
+        cy.get('.finalize-btn').click()
         // Saving user data to the file -> fixture/fullRegData.txt
         saveFullRegData(uniqueId, uniqueEmail, pass, firstName, lastName)
 
     })
 
     it('QUICK Successful Registration By Email', () => {
-        
+
+        GenerateUser()
+
         cy.get(pe.register_btn).click()
-        cy.get(pe.quick_reg_form).click()     
-        cy.get(pe.quick_reg_form).should('have.class','active')
+        cy.get(pe.quick_reg_form).click()
+        cy.get(pe.quick_reg_form).should('have.class', 'active')
 
         cy.get(pe.quick_email_input).type(uniqueEmail)
         cy.get(pe.quickAcceptTerms_chechbox).click()
