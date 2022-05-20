@@ -104,8 +104,7 @@ describe('Registration process [FULL + QUICK]', () => {
             .get(pe.congratulationsText)
             .should('contain.text', 'InPlayBet offers a range of cool features and promotions to Verified users, which is a quick and Fast process from your account!')
 
-        cy.get(pe.congratulation_btn).type('{esc}')
-
+            cy.get('.finalize-btn').click()
         // Saving user data to the file -> fixture/fullRegData.txt
         saveFullRegData(uniqueId, uniqueEmail, pass, firstName, lastName)
 

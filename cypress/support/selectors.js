@@ -21,7 +21,7 @@ export class Elements{
     full_email_input = ':nth-child(4) > .form_field > .ng-untouched'
     password_input = ':nth-child(1) > .form_field > .ng-untouched'
     passwordInfo = '.password-info'
-    passwordInfoText = 'A password contains at least eight characters, including at least one number and includes both lower and uppercase letters and special characters, for example #, ?, !.'
+    passwordInfoText = 'Lowercase letter is required Upper case letter is required Digit is not allowed Symbol is not allowed Maximum length is 16 Minimum length is 6'
     confirmPassword_input = ':nth-child(2) > .form_field > .ng-untouched'
     citizenship_input = '.ng-pristine'
 

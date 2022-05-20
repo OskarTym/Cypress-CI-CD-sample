@@ -22,3 +22,11 @@ first name: FN-16421798981322
 last name:  LN-16421798981322
 
    -> User Successfully Registered!
+-----------------------------------
+username:   1653055639033266
+email:      1653055639033266@gmail.com
+password:   Qwerty12345
+first name: FN-1653055639033266
+last name:  LN-1653055639033266
+
+   -> User Successfully Registered!
