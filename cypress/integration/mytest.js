@@ -131,13 +131,38 @@ describe('Registration process [FULL + QUICK]', () => {
         cy.get(pe.quick_reg_form).click()
         cy.get(pe.quick_reg_form).should('have.class', 'active')
 
+        cy.get(pe.regBy_dropdown).should('have.value', 'Email')
+
         cy.get(pe.quick_email_input).type(uniqueEmail)
+        cy.get(pe.currency_select).should('have.value', 'USD')
         cy.get(pe.quickAcceptTerms_chechbox).click()
         cy.get(pe.quick_submit_reg_btn).click()
         cy.get(pe.accInfo).should('be.visible')
 
         // Saving user data to the file -> fixture/quickRegData.txt
         saveQuickRegData(uniqueEmail)
+
+    })
+
+    it('QUICK Successful Registration By Mobile', () => {
+
+        GenerateUser()
+
+        cy.get(pe.register_btn).click()
+        cy.get(pe.quick_reg_form).click()
+        cy.get(pe.quick_reg_form).should('have.class', 'active')
+        cy.get(pe.quick_submit_reg_btn).should('have.class', 'not_active')
+
+        cy.get(pe.regBy_dropdown).select('Mobile').should('have.value', 'Mobile')
+        cy.get(pe.quick_mobile_input).type(uniqueId)
+        cy.get(pe.currency_select).should('have.value', 'USD')
+
+        cy.get(pe.quickAcceptTerms_chechbox).click()
+        cy.get(pe.quick_submit_reg_btn).should('have.class', 'active-item')
+
+        cy.get(pe.quick_submit_reg_btn).click()
+        cy.get(pe.accInfo).should('be.visible')
+
 
     })
 

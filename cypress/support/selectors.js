@@ -48,7 +48,7 @@ export class Elements{
     residentialAdrr_input = '.form_field > .ng-untouched'
 
     mobileCode_dropdown = '.custom_dropdown_reg > .flex_between'
-    mobileNum_input = '.mobileData_tabs > .ng-pristine'
+    mobileNum_input = '.mobileData_tabs > .ng-pristine' // optional
 
 
     fullAcceptTerms_chechbox = '.reg-checkbox'
@@ -67,10 +67,11 @@ export class Elements{
 
     regBy_dropdown = '.custom_dropdown_reg'
     quick_email_input = '.form_field > .ng-pristine'
+    quick_mobile_input = '.mobileData_tabs > .ng-untouched'
     currency_select = '.select-box > .ng-untouched'
 
     quickAcceptTerms_chechbox = '#acceptTerms'
-    quick_submit_reg_btn = '.reg-step-navigate-buttons'
+    quick_submit_reg_btn = '.reg-step-navigate-buttons > .reg_btn'
 
     accInfo = '.user-id-info'
 
