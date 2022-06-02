@@ -30,3 +30,27 @@ first name: FN-1653059249689603
 last name:  LN-1653059249689603
 
    -> User Successfully Registered!
+-----------------------------------
+username:   16532988865304
+email:      16532988865304@gmail.com
+password:   Qwerty12345
+first name: FN-16532988865304
+last name:  LN-16532988865304
+
+   -> User Successfully Registered!
+-----------------------------------
+username:   1653298920488256
+email:      1653298920488256@gmail.com
+password:   Qwerty12345
+first name: FN-1653298920488256
+last name:  LN-1653298920488256
+
+   -> User Successfully Registered!
+-----------------------------------
+username:   16535666379427
+email:      16535666379427@gmail.com
+password:   Qwerty12345
+first name: FN-16535666379427
+last name:  LN-16535666379427
+
+   -> User Successfully Registered!
